@@ -61,6 +61,7 @@ The website is built using a modular frontend architecture:
 ## Code Preview
 
 ```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
