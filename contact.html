@@ -10,7 +10,7 @@
 <body data-page="contact">
   <div id="site-header"></div>
   <main>
-    <section class="page-hero theme-storage">
+    <section class="page-hero theme-contact">
       <div class="container page-hero-content" data-reveal>
         <h1>Connect with the engineering team.</h1>
       </div>
@@ -26,15 +26,15 @@
           <form class="contact-form" id="contact-form">
             <label>
               <span>Name</span>
-              <input type="text" name="name" placeholder="Your name" required>
+              <input type="text" name="name" placeholder="Your name" autocomplete="name" required>
             </label>
             <label>
               <span>Email</span>
-              <input type="email" name="email" placeholder="name@company.com" required>
+              <input type="email" name="email" placeholder="name@company.com" autocomplete="email" inputmode="email" required>
             </label>
             <label>
               <span>Organization</span>
-              <input type="text" name="organization" placeholder="Company or institution">
+              <input type="text" name="organization" placeholder="Company or institution" autocomplete="organization">
             </label>
             <label>
               <span>Message</span>
@@ -52,12 +52,16 @@
             <p>Intelligent engineering platforms for modern infrastructure, energy, and autonomous operations.</p>
             <ul class="contact-list">
               <li>support@thesource-company.com</li>
-              <li>+91 xxxxx-xxxxx</li>
-              <li>Mon to Fri, 9:00 AM to 6:00 PM</li>
+              <li>
+                <a href="https://www.linkedin.com/company/thesource-company/" target="_blank" rel="noreferrer">thesourcecompany@LinkedIn</a>
+              </li>
+              <li>
+                <a href="https://youtube.com/@thesource-company?si=gIguSidJjnuODzWG" target="_blank" rel="noreferrer">thesourcecompany@YouTube</a>
+              </li>
             </ul>
           </article>
           <article class="panel-card map-card" data-reveal>
-            <span class="eyebrow">Office Location</span>
+            <span class="eyebrow">Prototype Test Location</span>
             <h3>Bengaluru Engineering Office</h3>
             <p>MG Road District<br>Bengaluru, Karnataka</p>
             <div class="map-frame">

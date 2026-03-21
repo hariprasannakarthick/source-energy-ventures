@@ -4,40 +4,66 @@ const siteData = {
     tagline: "Engineering The next wave of Power",
     email: "support@thesource-company.com",
     phone: "+91 xxxxx-xxxxx",
-    logo: "assets/images/logo.png"
+    logo: "assets/images/logo.png",
+    footerLogo: "assets/images/logo_white.png"
   },
   nav: [
     { key: "home", label: "Home", href: "index.html" },
-    { key: "products", label: "Products", href: "products.html" },
-    { key: "services", label: "Services", href: "services.html" },
+    {
+      key: "products",
+      label: "Products",
+      href: "products.html",
+      children: [
+        { label: "Terra Series", href: "domain.html?domain=terra" },
+        { label: "Hydra Series", href: "domain.html?domain=hydra" },
+        { label: "Aero Series", href: "domain.html?domain=aero" },
+        { label: "Silo Series", href: "domain.html?domain=storage" }
+      ]
+    },
+    {
+      key: "services",
+      label: "Services",
+      href: "services.html",
+      children: [
+        { label: "System Design & Installation", href: "services.html#services-design" },
+        { label: "Monitoring and Maintenance", href: "services.html#services-monitoring" }
+      ]
+    },
     { key: "applications", label: "Applications", href: "applications.html" },
     { key: "contact", label: "Contact", href: "contact.html" }
   ],
+  // Application cards use their own images so they can be updated without
+  // changing the shared home/domain theme artwork.
   applicationsPreview: [
     {
-      title: "Renewable Energy",
-      description: "Grid-aware coordination for clean power generation, dispatch balancing, and site resilience.",
-      theme: "theme-storage"
+      title: "High-Tension Power Lines",
+      description: "Reinforced lightweight conductors withstand continuous mechanical tension and wind loading while delivering efficient power transmission.High fatigue resistance ensures stable long-duration operation of airborne platforms.",
+      image: "assets/images/hight tension power lines.jpeg",
+      imageAlt: "High-tension power infrastructure"
     },
     {
-      title: "Environmental Monitoring",
-      description: "Persistent sensing and high-confidence telemetry across distributed land, water, and air systems.",
-      theme: "theme-terra"
+      title: "Water-Resistant Systems",
+      description: "Marine-grade sealing and corrosion-resistant materials protect electrical systems from moisture and salt exposure. Water-based deployment improves efficiency through natural cooling and enables large-scale installation on unused water bodies.",
+      image: "assets/images/water resistant systems.jpeg",
+      imageAlt: "Water-resistant energy system deployment"
     },
     {
-      title: "Smart Infrastructure",
-      description: "Connected control layers for campuses, public assets, utility networks, and intelligent facilities.",
-      theme: "theme-hydra"
+      title: "Multilayer Architectre",
+      description: "Pressure-rated enclosures, redundant sealing, and relief mechanisms ensure reliability in extreme hydrostatic environments. Layered protection prevents structural failure and safeguards critical electronics from water ingress.",
+      image: "assets/images/multilayerarchitecture.jpeg",
+      imageAlt: "Multilayer marine system architecture"
     },
     {
-      title: "Robotics Systems",
-      description: "Precision motion, operator visibility, and deterministic feedback for semi-autonomous environments.",
-      theme: "theme-aero"
+      title: "Micropored FC systems",
+      description: "Micro-porous electrodes increase reaction surface area, improving energy density and electrochemical efficiency. The design enables compact hydrogen storage with enhanced thermal stability and rapid energy conversion.",
+      image: "assets/images/micropored fc.jpeg",
+      imageAlt: "Microporous fuel cell systems"
     },
     {
-      title: "Industrial Automation",
-      description: "Modular engineering stacks that integrate sensing, actuation, and process control at production scale.",
-      theme: "theme-storage"
+      title: "Hydrogen-Lift Blimps",
+      description: "Hydrogen provides higher lift capacity and significantly lower operational cost compared with helium. Modern multilayer gas cells and controlled safety systems enable practical and scalable hydrogen-based aerostat deployment.",
+      image: "assets/images/hydrogen lift blimps.jpeg",
+      imageAlt: "Hydrogen-lift aerial platform"
     }
   ],
   systemBlueprints: {
@@ -252,11 +278,11 @@ const siteData = {
       stats: [
         { label: "Primary Focus", value: "Land-based infrastructure" },
         { label: "Deployment Model", value: "Remote distributed sites" },
-        { label: "System Trait", value: "Deterministic edge control" }
+        { label: "System Trait", value: "Space Efficiency" }
       ],
       systems: {
         helius: {
-          summary: "Coordinated control for terrain-based energy and sensing assets.",
+          summary: "Helius-T photovoltaic modules offer high energy conversion efficiency under both direct and low-irradiance conditions while utilizing lightweight, cost-efficient materials. Their ultra-thin, foldable architecture enables flexible deployment across large surfaces with minimal structural requirements while maintaining high power generation capability.",
           overview: "Terra Helius synchronizes field equipment, environmental telemetry, and remote operations across wide terrestrial footprints.",
           features: [
             "Terrain-aware orchestration for distributed devices",
@@ -276,50 +302,8 @@ const siteData = {
             "Autonomous land facilities"
           ]
         },
-        thermus: {
-          summary: "Thermal regulation for ground energy and process sites.",
-          overview: "Terra Thermus manages heat transfer, thermal buffering, and condition monitoring for land-based energy and industrial installations.",
-          features: [
-            "Heat exchange balancing across equipment clusters",
-            "Thermal storage coordination for load shifting",
-            "Predictive temperature supervision at edge sites",
-            "Fail-safe thermal interventions for harsh environments"
-          ],
-          specs: [
-            { label: "Thermal Range", value: "-40C to 180C" },
-            { label: "Transfer Media", value: "Liquid, glycol, and oil loops" },
-            { label: "Sensor Density", value: "128 thermal points per array" },
-            { label: "Safety Layer", value: "Multi-zone thermal cutoffs" }
-          ],
-          applications: [
-            "Geotechnical heating systems",
-            "Industrial process skids",
-            "District energy nodes"
-          ]
-        },
-        dynamus: {
-          summary: "Mechanical motion control for land systems and heavy automation.",
-          overview: "Terra Dynamus coordinates high-force motion systems for terrestrial robotics, automated inspection, and industrial handling operations.",
-          features: [
-            "Actuator timing across heavy-duty motion assemblies",
-            "Vibration-aware control for outdoor infrastructure",
-            "Energy-efficient motion profiles for continuous duty",
-            "Integrated operator safeguards during live motion events"
-          ],
-          specs: [
-            { label: "Torque Management", value: "Dynamic vector control" },
-            { label: "Drive Topology", value: "Multi-axis servo network" },
-            { label: "Feedback Resolution", value: "0.01 mm positional tracking" },
-            { label: "Duty Cycle", value: "24/7 industrial rating" }
-          ],
-          applications: [
-            "Robotic handling systems",
-            "Mobile infrastructure platforms",
-            "Automated inspection gantries"
-          ]
-        },
         reactus: {
-          summary: "Reactive process control for terrestrial treatment and materials systems.",
+          summary: "Reactus-T Fuel cell systems deliver high energy density in a compact footprint, enabling efficient power generation with minimal spatial requirements compared to conventional storage or generation systems. They provide stable, low-emission electricity with rapid response capability, making them ideal for continuous power supply, peak load support, and decentralized energy infrastructure.",
           overview: "Terra Reactus provides contained process control for field treatment, material conversion, and land-based environmental response systems.",
           features: [
             "Precision reagent metering for variable site inputs",
@@ -354,7 +338,7 @@ const siteData = {
       ],
       systems: {
         helius: {
-          summary: "Water network control kernel for treatment and coastal assets.",
+          summary: "Helius-H photovoltaic systems deployed over water bodies maximize unused surface area for energy generation while minimizing land utilization and infrastructure demand. The water layer naturally cools the panels, improving efficiency and reducing evaporation from the water body while enabling large-scale renewable power production.",
           overview: "Hydra Helius unifies pump stations, treatment lines, and basin telemetry into one resilient supervisory stack.",
           features: [
             "Distributed pump and gate coordination",
@@ -374,29 +358,8 @@ const siteData = {
             "Water treatment campuses"
           ]
         },
-        thermus: {
-          summary: "Thermal management for water treatment and marine energy systems.",
-          overview: "Hydra Thermus balances process heat, cooling, and thermal efficiency for water infrastructure where chemistry and flow both matter.",
-          features: [
-            "Exchanger balancing for wet-end processes",
-            "Saline process heat management",
-            "Adaptive cooling loops for variable water loads",
-            "Thermal loss diagnostics across distributed equipment"
-          ],
-          specs: [
-            { label: "Thermal Range", value: "0C to 220C" },
-            { label: "Transfer Media", value: "Seawater-compatible loop paths" },
-            { label: "Sensor Density", value: "96 wet-end thermal points" },
-            { label: "Materials", value: "Duplex stainless internals" }
-          ],
-          applications: [
-            "Desalination platforms",
-            "Aquaculture climate control",
-            "Marine energy skids"
-          ]
-        },
         dynamus: {
-          summary: "Motion and flow mechanics for pumps, gates, and valves.",
+          summary: "Dynamus-H Wave and tidal power conversion systems harness the kinetic energy of ocean waves and the predictable motion of tides to generate renewable electricity with high reliability. These systems offer consistent marine energy production with minimal emissions while utilizing natural ocean dynamics to support large-scale coastal power generation",
           overview: "Hydra Dynamus coordinates fluid movement and mechanical actuation where pressure control, gate timing, and system stability are tightly linked.",
           features: [
             "Pump sequencing across multi-stage lines",
@@ -416,27 +379,6 @@ const siteData = {
             "Offshore transfer systems"
           ]
         },
-        reactus: {
-          summary: "Reactive treatment control for water chemistry and compliance workflows.",
-          overview: "Hydra Reactus manages controlled dosing, mixing, and process traceability for treatment chemistry in regulated water environments.",
-          features: [
-            "Chemical dosing automation with traceable steps",
-            "Chamber mixing stability across variable influent states",
-            "Compliance logging tied directly to process events",
-            "Safe intervention logic for treatment anomalies"
-          ],
-          specs: [
-            { label: "Chamber Pressure", value: "Up to 18 bar" },
-            { label: "Dosing Precision", value: "+/-0.1%" },
-            { label: "Reactor Type", value: "Continuous-flow process line" },
-            { label: "Compliance Profile", value: "Traceable batch records" }
-          ],
-          applications: [
-            "Membrane pretreatment",
-            "Wastewater conditioning",
-            "Nutrient recovery systems"
-          ]
-        }
       }
     },
     aero: {
@@ -452,7 +394,7 @@ const siteData = {
       ],
       systems: {
         helius: {
-          summary: "Control kernel for flight-adjacent and atmospheric platforms.",
+          summary: "Helius-A Ultra-lightweight photovoltaic panels provide high energy conversion with minimal mass, enabling efficient onboard power generation for drones and aerial platforms. Their flexible thin-film architecture integrates seamlessly with wings and airframes, extending flight endurance while reducing reliance on conventional battery storage.",
           overview: "Aero Helius coordinates sensing, mission logic, and command execution for airborne systems where response time and weight both matter.",
           features: [
             "Sensor fusion for air data and payload telemetry",
@@ -472,29 +414,8 @@ const siteData = {
             "Aerial infrastructure inspection"
           ]
         },
-        thermus: {
-          summary: "Thermal stability platform for avionics and aerial payloads.",
-          overview: "Aero Thermus protects sensitive electronics and energy systems with altitude-aware thermal control and high-efficiency heat routing.",
-          features: [
-            "Battery temperature conditioning during mission cycles",
-            "Payload cooling for dense edge compute loads",
-            "Altitude-aware regulation under rapid atmospheric shifts",
-            "Thermal anomaly detection before mission degradation"
-          ],
-          specs: [
-            { label: "Thermal Range", value: "-55C to 160C" },
-            { label: "Transfer Media", value: "Phase-change and closed-loop air" },
-            { label: "Sensor Density", value: "80 distributed thermal points" },
-            { label: "Control Cadence", value: "High-altitude adaptive tuning" }
-          ],
-          applications: [
-            "Unmanned aircraft systems",
-            "High-altitude stations",
-            "Edge compute payloads"
-          ]
-        },
         dynamus: {
-          summary: "Motion system for thrust vectoring and aerial articulation.",
+          summary: "Dynamus-A Aerostat wind turbine systems utilize tethered airborne platforms to access stronger and more consistent high-altitude winds, enabling efficient renewable power generation. Their elevated operation increases energy yield while reducing the need for large ground-based tower structures, allowing deployment in remote or space-constrained locations.",
           overview: "Aero Dynamus delivers precision motion for high-response assemblies, balancing force, vibration, and control timing in compact airframes.",
           features: [
             "Precision servo coordination for control surfaces",
@@ -513,32 +434,11 @@ const siteData = {
             "Robotic airframes",
             "Precision positioning rigs"
           ]
-        },
-        reactus: {
-          summary: "Reaction platform for atmospheric processing and material transformation.",
-          overview: "Aero Reactus supports portable and onboard reaction workflows where containment, micro-dosing, and autonomous timing must remain tightly controlled.",
-          features: [
-            "Chamber conditioning for compact process units",
-            "Micro-dosing with repeatable recipe control",
-            "Autonomous reaction sequences with safety interlocks",
-            "Protected processing for airborne material programs"
-          ],
-          specs: [
-            { label: "Chamber Pressure", value: "Vacuum to 12 bar" },
-            { label: "Catalyst Management", value: "Sealed cartridge workflow" },
-            { label: "Precision Profile", value: "Micro-batch process control" },
-            { label: "Enclosure", value: "Carbon-composite shield" }
-          ],
-          applications: [
-            "Air sampling systems",
-            "Advanced materials research",
-            "Portable synthesis units"
-          ]
         }
       }
     },
     storage: {
-      name: "Storage",
+      name: "Silo",
       theme: "theme-storage",
       heading: "Silo Series",
       showcaseDescription: "Power reserves for unexpected surges.",
@@ -549,29 +449,8 @@ const siteData = {
         { label: "System Trait", value: "High-availability energy control" }
       ],
       systems: {
-        helius: {
-          summary: "Energy storage control kernel for balancing, safety, and dispatch.",
-          overview: "Storage Helius orchestrates battery clusters, inverters, and grid events through a deterministic supervisory layer built for reserve power environments.",
-          features: [
-            "Cell cluster orchestration for stable dispatch",
-            "Balancing logic tied to live operating states",
-            "Inverter coordination for flexible grid response",
-            "Fast event handling during transients and faults"
-          ],
-          specs: [
-            { label: "Network Architecture", value: "Battery cluster ring bus" },
-            { label: "Voltage Class", value: "600V to 1500V DC" },
-            { label: "Safety Layer", value: "Cell-level isolation logic" },
-            { label: "Operating Range", value: "-10C to 50C" }
-          ],
-          applications: [
-            "Utility battery systems",
-            "Campus energy hubs",
-            "Fast-response microgrids"
-          ]
-        },
         thermus: {
-          summary: "Thermal system for batteries and energy reserve units.",
+          summary: "Sand-based energy storage systems store excess energy as thermal heat within high-capacity sand reservoirs, enabling efficient long-duration energy storage with low-cost and abundant materials. The stored heat can be retained for extended periods and converted back into usable energy, providing stable grid support and effective management of power surges.",
           overview: "Storage Thermus manages cell temperatures, cooling pathways, and anomaly detection to protect energy assets during charge, discharge, and standby modes.",
           features: [
             "Cell temperature equalization across pack groups",
@@ -591,29 +470,8 @@ const siteData = {
             "Critical backup power systems"
           ]
         },
-        dynamus: {
-          summary: "Mechanical motion and switching layer inside storage facilities.",
-          overview: "Storage Dynamus coordinates service access, switching sequences, and mechanical isolation across dense reserve power environments.",
-          features: [
-            "Rack actuation and service aisle coordination",
-            "Breaker sequencing tied to protection logic",
-            "Mechanical isolation during fault response",
-            "Robotic access flows for efficient maintenance"
-          ],
-          specs: [
-            { label: "Drive Topology", value: "Compact servo and breaker network" },
-            { label: "Duty Cycle", value: "Rapid-response switching" },
-            { label: "Response Envelope", value: "Sub-second isolation events" },
-            { label: "Maintenance Profile", value: "Front-access service geometry" }
-          ],
-          applications: [
-            "Energy warehouses",
-            "Modular reserve banks",
-            "Automated service aisles"
-          ]
-        },
         reactus: {
-          summary: "Reactive conversion and conditioning for stored energy chemistry.",
+          summary: "Hydrogen fuel cell storage systems convert surplus electricity into hydrogen and deliver clean on-demand power, providing a zero-emission alternative to conventional diesel generators. Their high energy density and modular architecture enable quiet, reliable backup power and long-duration energy supply without fuel combustion or particulate emissions",
           overview: "Storage Reactus manages chemistry conditioning, gas handling, and controlled process transitions for advanced storage and conversion programs.",
           features: [
             "Chemistry stabilization under variable states of charge",
@@ -638,10 +496,246 @@ const siteData = {
   }
 };
 
+const domainSystemCardSlides = {
+  terra: {
+    helius: [
+      { src: "assets/images/SR-124.jpg", label: "Industry Solar", productId: "TH-552" },
+      { src: "assets/images/TH-133.jpg", label: "Residency Solar", productId: "TH-133" },
+    ],
+    reactus: [
+      { src: "assets/images/TR-342.jpg", label: "Industry Fuel Cells", productId: "TR-342" },
+      { src: "assets/images/TR-233.jpeg", label: "Residency Fuel Cells", productId: "TR-233" },
+    ]
+  },
+  hydra: {
+    helius: [
+      { src: "assets/images/HH-441.jpeg", label: "Solar Grid", productId: "HH-441" }
+    ],
+    dynamus: [
+      { src: "assets/images/HD-541.jpeg", label: "Wave Energy Converter", productId: "HD-541" },
+      { src: "assets/images/HD-551.jpeg", label: "Tidal Energy Converter", productId: "HD-551" }
+    ]
+  },
+  aero: {
+    helius: [
+      { src: "assets/images/AH-231.png", label: "Aerial Solar", productId: "AH-231" }
+    ],
+    dynamus: [
+      { src: "assets/images/AD-241.jpg", label: "Turbine to Industry", productId: "AD-341" },
+      { src: "assets/images/AD-651.png", label: "Turbine to Grid", productId: "AD-651" }
+    ]
+  },
+  storage: {
+    thermus: [
+      { src: "assets/images/sand battery.jpg", label: "Sand based Storage", productId: "ST-551" }
+    ],
+    reactus: [
+      { src: "assets/images/SR-341.jpg", label: "Hydrogen Based Storage", productId: "SR-341" },
+      { src: "assets/images/TR-233.jpeg", label: "Portable Hydrogen Based Storage", productId: "SR-124" }
+    ]
+  }
+};
+
 const THEME_STORAGE_KEY = "site-theme";
+const COOKIE_CONSENT_KEY = "site-cookie-consent";
+const COOKIE_LIFETIME_DAYS = 180;
+
+function getCookie(name) {
+  if (typeof document === "undefined" || !document.cookie) {
+    return "";
+  }
+
+  const prefix = `${encodeURIComponent(name)}=`;
+  const match = document.cookie
+    .split("; ")
+    .find((entry) => entry.startsWith(prefix));
+
+  return match ? decodeURIComponent(match.slice(prefix.length)) : "";
+}
+
+function setCookie(name, value, days = COOKIE_LIFETIME_DAYS) {
+  if (typeof document === "undefined") {
+    return;
+  }
+
+  const expires = new Date(Date.now() + days * 24 * 60 * 60 * 1000).toUTCString();
+  document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+}
+
+function readStoredPreference(key) {
+  const cookieValue = getCookie(key);
+  if (cookieValue) {
+    return cookieValue;
+  }
+
+  try {
+    // Migrate legacy localStorage values into cookies so older visits keep
+    // their saved theme without maintaining two separate preference systems.
+    const legacyValue = window.localStorage.getItem(key);
+    if (legacyValue) {
+      setCookie(key, legacyValue);
+      return legacyValue;
+    }
+  } catch (_error) {
+    return "";
+  }
+
+  return "";
+}
+
+function persistPreference(key, value) {
+  setCookie(key, value);
+
+  try {
+    window.localStorage.setItem(key, value);
+  } catch (_error) {
+    // Ignore private-mode storage failures and keep the cookie as the source of truth.
+  }
+}
+
+function getSystemCardSlides(domainSlug, systemSlug) {
+  return domainSystemCardSlides[domainSlug]?.[systemSlug] || [];
+}
+
+function renderSystemCardSlider(domainSlug, systemSlug) {
+  const slides = getSystemCardSlides(domainSlug, systemSlug);
+  if (slides.length === 0) {
+    return "";
+  }
+
+  return `
+    <div class="system-card-slider" data-system-card-slider>
+      <div class="system-card-track">
+        ${slides.map((slide) => `
+          <figure class="system-card-slide">
+            <img src="${slide.src}" alt="${slide.label} ${slide.productId}" loading="lazy" decoding="async">
+            <span class="system-card-product-id">${slide.productId}</span>
+            <figcaption>${slide.label}</figcaption>
+          </figure>
+        `).join("")}
+      </div>
+      <div class="system-card-controls">
+        <button class="system-card-button" type="button" data-direction="-1" aria-label="Show previous image">
+          <span aria-hidden="true">&larr;</span>
+        </button>
+        <button class="system-card-button" type="button" data-direction="1" aria-label="Show next image">
+          <span aria-hidden="true">&rarr;</span>
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function attachSystemCardSliders() {
+  const sliders = document.querySelectorAll("[data-system-card-slider]");
+  if (sliders.length === 0) {
+    return;
+  }
+
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  sliders.forEach((slider) => {
+    const track = slider.querySelector(".system-card-track");
+    const slides = slider.querySelectorAll(".system-card-slide");
+    const buttons = slider.querySelectorAll(".system-card-button");
+
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    if (slides.length === 1) {
+      slides[0].classList.add("is-active");
+      return;
+    }
+
+    let index = 0;
+    let intervalId = null;
+    let inViewport = true;
+
+    function render() {
+      track.style.transform = `translate3d(${-100 * index}%, 0, 0)`;
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("is-active", slideIndex === index);
+      });
+    }
+
+    function step(direction) {
+      index = (index + direction + slides.length) % slides.length;
+      render();
+    }
+
+    function stopAutoRotate() {
+      if (intervalId) {
+        window.clearInterval(intervalId);
+        intervalId = null;
+      }
+    }
+
+    function startAutoRotate() {
+      if (prefersReducedMotion || intervalId || document.hidden || !inViewport) {
+        return;
+      }
+
+      intervalId = window.setInterval(() => {
+        step(1);
+      }, 4800);
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const direction = Number(button.dataset.direction || "1") === -1 ? -1 : 1;
+        stopAutoRotate();
+        step(direction);
+        startAutoRotate();
+      });
+    });
+
+    slider.addEventListener("mouseenter", stopAutoRotate);
+    slider.addEventListener("mouseleave", startAutoRotate);
+    slider.addEventListener("focusin", stopAutoRotate);
+    slider.addEventListener("focusout", (event) => {
+      if (!(event.relatedTarget instanceof Element) || !slider.contains(event.relatedTarget)) {
+        startAutoRotate();
+      }
+    });
+
+    // Pause background carousel work when the slider is off-screen so motion
+    // remains smooth for the visible content.
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const [entry] = entries;
+          inViewport = Boolean(entry?.isIntersecting);
+
+          if (inViewport) {
+            startAutoRotate();
+          } else {
+            stopAutoRotate();
+          }
+        },
+        {
+          threshold: 0.35
+        }
+      );
+
+      observer.observe(slider);
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAutoRotate();
+      } else {
+        startAutoRotate();
+      }
+    });
+
+    render();
+    startAutoRotate();
+  });
+}
 
 function preferredTheme() {
-  const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  const storedTheme = readStoredPreference(THEME_STORAGE_KEY);
   if (storedTheme === "dark" || storedTheme === "light") {
     return storedTheme;
   }
@@ -654,7 +748,7 @@ function applyTheme(theme) {
   document.body.classList.toggle("theme-dark", nextTheme === "dark");
   document.body.classList.toggle("theme-light", nextTheme === "light");
   document.documentElement.style.colorScheme = nextTheme;
-  localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  persistPreference(THEME_STORAGE_KEY, nextTheme);
 
   const themeToggle = document.querySelector(".theme-toggle");
   if (themeToggle) {
@@ -666,6 +760,65 @@ function applyTheme(theme) {
       label.textContent = isDark ? "Light" : "Dark";
     }
   }
+}
+
+function renderCookieBanner() {
+  if (typeof document === "undefined" || document.querySelector("[data-cookie-banner]")) {
+    return;
+  }
+
+  const hasSavedChoice = Boolean(getCookie(COOKIE_CONSENT_KEY));
+
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    `
+      <aside class="cookie-banner${hasSavedChoice ? " is-hidden" : ""}" data-cookie-banner role="dialog" aria-label="Cookie preferences" aria-hidden="${hasSavedChoice ? "true" : "false"}">
+        <div class="cookie-banner-copy">
+          <strong>Cookie preferences</strong>
+          <p>We use cookies to remember your theme and core site settings so the experience stays consistent across every page.</p>
+        </div>
+        <div class="cookie-banner-actions">
+          <button class="cookie-banner-button is-secondary" type="button" data-cookie-choice="essential">Essential only</button>
+          <button class="cookie-banner-button" type="button" data-cookie-choice="accepted">Allow cookies</button>
+        </div>
+      </aside>
+      <button class="cookie-settings-toggle${hasSavedChoice ? " is-visible" : ""}" type="button" data-open-cookie-banner aria-label="Open cookie settings">
+        Cookie settings
+      </button>
+    `
+  );
+}
+
+function attachCookieBanner() {
+  const banner = document.querySelector("[data-cookie-banner]");
+  const openButton = document.querySelector("[data-open-cookie-banner]");
+  const choiceButtons = document.querySelectorAll("[data-cookie-choice]");
+
+  if (!banner || !openButton || choiceButtons.length === 0) {
+    return;
+  }
+
+  function syncCookieUI(isVisible) {
+    banner.classList.toggle("is-hidden", !isVisible);
+    banner.setAttribute("aria-hidden", String(!isVisible));
+    openButton.classList.toggle("is-visible", !isVisible);
+  }
+
+  // Keep the floating settings control available after a decision so visitors
+  // can reopen the banner and update their preference later.
+  choiceButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const choice = button.getAttribute("data-cookie-choice") === "accepted" ? "accepted" : "essential";
+      setCookie(COOKIE_CONSENT_KEY, choice);
+      syncCookieUI(false);
+    });
+  });
+
+  openButton.addEventListener("click", () => {
+    syncCookieUI(true);
+  });
+
+  syncCookieUI(!getCookie(COOKIE_CONSENT_KEY));
 }
 
 function pageKey() {
@@ -690,7 +843,24 @@ function renderHeader() {
   const links = siteData.nav
     .map((item) => {
       const active = item.key === current ? " active" : "";
-      return `<a class="nav-link${active}" href="${item.href}">${item.label}</a>`;
+      if (!item.children || item.children.length === 0) {
+        return `<a class="nav-link${active}" href="${item.href}">${item.label}</a>`;
+      }
+
+      // Group child links under one parent item so the mobile flyout can show
+      // drill-down navigation without turning the desktop header into a mega menu.
+      const childLinks = item.children
+        .map((child) => `<a class="nav-sublink" href="${child.href}">${child.label}</a>`)
+        .join("");
+
+      return `
+        <div class="nav-group${active ? " is-active" : ""}">
+          <a class="nav-link${active}" href="${item.href}">${item.label}</a>
+          <div class="nav-submenu">
+            ${childLinks}
+          </div>
+        </div>
+      `;
     })
     .join("");
 
@@ -706,7 +876,9 @@ function renderHeader() {
           <span class="theme-toggle-label">Dark</span>
         </button>
         <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-          <span></span>
+          <span class="nav-toggle-line" aria-hidden="true"></span>
+          <span class="nav-toggle-line" aria-hidden="true"></span>
+          <span class="nav-toggle-line" aria-hidden="true"></span>
         </button>
         <nav class="site-nav" aria-label="Primary navigation">
           ${links}
@@ -732,7 +904,7 @@ function renderFooter() {
         <div class="footer-grid">
           <div class="footer-brand">
             <a class="brand" href="index.html">
-              <img class="brand-logo" src="${siteData.brand.logo}" alt="${siteData.brand.name}">
+              <img class="brand-logo footer-logo" src="${siteData.brand.footerLogo}" alt="${siteData.brand.name}">
             </a>
             <p>${siteData.brand.tagline}</p>
           </div>
@@ -747,7 +919,7 @@ function renderFooter() {
             <span>Bengaluru, India</span>
           </div>
         </div>
-        <div class="footer-copy">Copyright ${new Date().getFullYear()} ${siteData.brand.name}. Built by ❤️.</div>
+        <div class="footer-copy">Copyright ${new Date().getFullYear()} ${siteData.brand.name}.Built by <a href="https://subhra1432.github.io/Portfolio/">Subhrakanta.</a></div>
       </div>
     </footer>
   `;
@@ -788,6 +960,30 @@ function attachHeaderBehavior() {
   if (overlay) {
     overlay.addEventListener("click", closeMenu);
   }
+
+  // Mirror native drawer behavior on mobile by closing the flyout whenever the
+  // pointer lands outside the nav panel or the toggle itself.
+  document.addEventListener("pointerdown", (event) => {
+    if (!document.body.classList.contains("menu-open") || window.innerWidth > 880) {
+      return;
+    }
+
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    if (event.target.closest(".site-nav") || event.target.closest(".nav-toggle")) {
+      return;
+    }
+
+    closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
 
   if (themeToggle) {
     applyTheme(document.body.classList.contains("theme-dark") ? "dark" : "light");
@@ -856,12 +1052,13 @@ function renderProductsGrid() {
 
   target.innerHTML = domainEntries()
     .map(([slug, domain]) => {
+      const description = domain.showcaseDescription || domain.overview || "";
       return `
         <article class="application-card" data-reveal>
           <div class="card-visual ${domain.theme}"></div>
           <span class="eyebrow">${domain.name} Domain</span>
           <h3>${domain.heading}</h3>
-          <p>${domain.pageDescription}</p>
+          <p class="domain-card-summary">${description}</p>
           <a class="link-arrow" href="domain.html?domain=${slug}">Open ${domain.name}</a>
         </article>
       `;
@@ -879,7 +1076,9 @@ function renderApplicationPreview() {
     .map((item) => {
       return `
         <article class="application-card" data-reveal>
-          <div class="card-visual ${item.theme}"></div>
+          <div class="card-visual application-card-visual">
+            <img src="${item.image}" alt="${item.imageAlt || item.title}" loading="lazy" decoding="async">
+          </div>
           <h3>${item.title}</h3>
           <p>${item.description}</p>
         </article>
@@ -904,7 +1103,6 @@ function getSystemFromUrl() {
   const safeSlug = siteData.systemBlueprints[systemSlug] ? systemSlug : "helius";
   return { slug: safeSlug, blueprint };
 }
-
 function renderDomainPage() {
   const target = document.getElementById("domain-page");
   if (!target) {
@@ -917,10 +1115,11 @@ function renderDomainPage() {
       const blueprint = siteData.systemBlueprints[systemSlug];
       return `
         <article class="system-card" data-reveal>
+          ${renderSystemCardSlider(slug, systemSlug)}
           <span class="eyebrow">${blueprint.category}</span>
           <h3>${blueprint.name}</h3>
           <p>${systemData.summary}</p>
-          <a class="link-arrow" href="system.html?domain=${slug}&system=${systemSlug}">View ${blueprint.name}</a>
+          <!-- <a class="link-arrow" href="system.html?domain=${slug}&system=${systemSlug}">View ${blueprint.name}</a> -->
         </article>
       `;
     })
@@ -938,7 +1137,7 @@ function renderDomainPage() {
     .join("");
 
   document.title = `${domain.name} | ${siteData.brand.name}`;
-  setMetaDescription(`${domain.name} systems from ${siteData.brand.name}. ${domain.pageDescription}`);
+  setMetaDescription(`${domain.name} systems from ${siteData.brand.name}. ${domain.overview || domain.showcaseDescription || ""}`);
 
   target.innerHTML = `
     <section class="page-hero ${domain.theme}">
@@ -964,7 +1163,7 @@ function renderDomainPage() {
         <div class="section-heading" data-reveal>
           <span class="eyebrow">System Portfolio</span>
           <h2>Navigate the ${domain.name} system family.</h2>
-          <p>Every ${domain.name} deployment is structured around four primary systems with dedicated subsystem pages.</p>
+          <p>Every ${domain.name} deployment is structured around two primary systems.</p>
         </div>
         <div class="system-grid">
           ${systemCards}
@@ -994,6 +1193,9 @@ function renderSystemPage() {
   const systemData = domain.systems[systemSlug] || domain.systems.helius;
   const activeSystemSlug = domain.systems[systemSlug] ? systemSlug : "helius";
   const specs = [...systemData.specs, ...blueprint.baseSpecs];
+  const overviewVisual = activeSystemSlug === "helius"
+    ? `<div class="card-visual ${domain.theme} system-overview-visual" data-reveal aria-hidden="true"></div>`
+    : "";
   const heroSpecs = specs
     .slice(0, 3)
     .map((item) => {
@@ -1066,6 +1268,7 @@ function renderSystemPage() {
           <h2>${blueprint.name} is the ${blueprint.category.toLowerCase()} within ${domain.name}.</h2>
           <p>${systemData.overview}</p>
         </div>
+        ${overviewVisual}
         <div class="summary-grid">
           ${heroSpecs}
         </div>
@@ -1136,15 +1339,85 @@ function renderSystemPage() {
 function attachContactForm() {
   const form = document.getElementById("contact-form");
   const response = document.getElementById("form-response");
-  if (!form || !response) {
+  const submitButton = form?.querySelector('button[type="submit"]');
+  if (!form || !response || !submitButton) {
     return;
+  }
+
+  function setResponseState(message, tone = "success", mailtoLink = "") {
+    response.textContent = "";
+    response.classList.remove("is-success", "is-error");
+    response.classList.add(tone === "error" ? "is-error" : "is-success");
+    response.append(document.createTextNode(message));
+
+    if (mailtoLink) {
+      response.append(document.createTextNode(" "));
+      const link = document.createElement("a");
+      link.href = mailtoLink;
+      link.textContent = "Email us directly";
+      response.append(link);
+    }
+  }
+
+  // This site is static, so the most reliable end-to-end contact flow is to
+  // open the visitor's mail client with a fully populated inquiry draft.
+  function buildInquiryMailto(fields) {
+    const subjectParts = ["Website inquiry"];
+    if (fields.organization) {
+      subjectParts.push(`from ${fields.organization}`);
+    }
+
+    const subject = `${subjectParts.join(" ")} (${fields.name})`;
+    const body = [
+      `Name: ${fields.name}`,
+      `Email: ${fields.email}`,
+      `Organization: ${fields.organization || "Not provided"}`,
+      "",
+      "Message:",
+      fields.message
+    ].join("\n");
+
+    return `mailto:${siteData.brand.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const name = new FormData(form).get("name") || "there";
-    response.textContent = `Thanks ${name}. The Source-Company team will respond within one business day.`;
-    form.reset();
+
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const formData = new FormData(form);
+    const fields = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      organization: String(formData.get("organization") || "").trim(),
+      message: String(formData.get("message") || "").trim()
+    };
+
+    const firstMissingField = Object.entries({
+      name: fields.name,
+      email: fields.email,
+      message: fields.message
+    }).find(([, value]) => !value)?.[0];
+
+    if (firstMissingField) {
+      form.querySelector(`[name="${firstMissingField}"]`)?.focus();
+      setResponseState("Please complete the required fields before sending your inquiry.", "error");
+      return;
+    }
+
+    const mailtoLink = buildInquiryMailto(fields);
+    submitButton.disabled = true;
+    submitButton.setAttribute("aria-busy", "true");
+    setResponseState("Your email app should open with a prefilled inquiry draft.", "success", mailtoLink);
+
+    window.location.href = mailtoLink;
+
+    window.setTimeout(() => {
+      submitButton.disabled = false;
+      submitButton.removeAttribute("aria-busy");
+    }, 700);
   });
 }
 
@@ -1177,12 +1450,15 @@ function init() {
   applyTheme(preferredTheme());
   renderHeader();
   renderFooter();
+  renderCookieBanner();
   renderHomeShowcase();
   renderProductsGrid();
   renderApplicationPreview();
   renderDomainPage();
   renderSystemPage();
   attachHeaderBehavior();
+  attachCookieBanner();
+  attachSystemCardSliders();
   attachContactForm();
   observeReveals();
 }
