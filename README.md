@@ -192,3 +192,14 @@ The website is built using a modular frontend architecture:
 
 ---
 
+```
+---
+
+## Author
+
+Hari Prasanna
+B.Tech Robotics Engineering
+
+---
+
+
